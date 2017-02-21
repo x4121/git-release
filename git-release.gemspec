@@ -23,15 +23,11 @@ Gem::Specification.new do |spec|
         "README.md",
         "lib/git-release.rb",
         "lib/git-release/version.rb"
-        # "lib/git-release/common/git.rb",
-        # "lib/git-release/common/string.rb",
-        # "lib/git-release/common/log.rb"
     ]
     spec.required_ruby_version = '>= 1.9'
     spec.add_runtime_dependency 'octokit', '~> 4.6'
     spec.add_runtime_dependency 'highline', '~> 1.7'
     spec.add_development_dependency 'rake', '~> 0'
-    spec.requirements << 'git'
     spec.requirements << 'git'
     spec.license     = 'MIT'
 end

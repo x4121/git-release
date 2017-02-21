@@ -106,7 +106,12 @@ module GitRelease
     end
 
     def self.load_token
-        File.open(File.expand_path($token_file), &:readline)
+        begin
+            File.open(File.expand_path($token_file), &:readline)
+        rescue
+            puts "please login first"
+            exit 1
+        end
     end
 
     def self.store_token(token)
