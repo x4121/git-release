@@ -6,7 +6,7 @@ require 'git-release/version'
 GEM_VERSION = GitRelease::VERSION
 
 Gem::Specification.new do |spec|
-    spec.name        = 'git-release'
+    spec.name        = 'git-rc'
     spec.version     = GEM_VERSION
     spec.authors     = ['Armin Grodon']
     spec.email       = ['me@armingrodon.de']
