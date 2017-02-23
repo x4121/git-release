@@ -260,6 +260,11 @@ module GitRelease
             end
             puts
         end
+        if first_production and first_testing
+            $cli.say("<%= color('no release for testing and production!', :red) %>")
+        elsif first_production
+            $cli.say("<%= color('no release for production!', :red) %>")
+        end
     end
 
     def self.get_tag(releases, tag)
