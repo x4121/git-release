@@ -255,7 +255,9 @@ module GitRelease
 
             $cli.say("<%= color('released:', :blue) %> #{r.published_at}")
             $cli.say("<%= color('notes:', :blue) %>")
-            r.body.each_line { |l| $cli.say("  #{l}") }
+            if !r.body.nil?
+                r.body.each_line { |l| $cli.say("  #{l}") }
+            end
             puts
         end
     end
