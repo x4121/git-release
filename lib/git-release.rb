@@ -231,7 +231,7 @@ module GitRelease
     def self.print_releases(repo)
         client = get_api_client
         releases = client.releases(repo)
-        sorted = releases.sort { |x,y| y.tag_name <=> x.tag_name }
+        sorted = releases.sort { |x,y| y.created_at <=> x.created_at }
         first_testing = first_production = true
         sorted.each do |r|
             if r.draft
@@ -254,8 +254,8 @@ module GitRelease
             end
 
             $cli.say("<%= color('released:', :blue) %> #{r.published_at}")
-            $cli.say("<%= color('notes:', :blue) %>")
-            if !r.body.nil?
+            if !r.body.nil? and !r.body.empty?
+                $cli.say("<%= color('notes:', :blue) %>")
                 r.body.each_line { |l| $cli.say("  #{l}") }
             end
             puts
@@ -313,7 +313,7 @@ module GitRelease
         if text.kind_of?(Array)
             text = text.join("\n")
         end
-        if release.body.empty?
+        if release.body.nil? or release.body.empty?
             body = text
         else
             body = "#{release.body}\n#{text}"
