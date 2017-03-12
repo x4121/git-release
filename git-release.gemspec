@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
         "lib/git-release.rb",
         "lib/git-release/version.rb"
     ]
-    spec.required_ruby_version = '>= 1.9'
+    spec.required_ruby_version = '>= 2.0'
     spec.add_runtime_dependency 'octokit', '~> 4.6'
     spec.add_runtime_dependency 'highline', '~> 1.7'
     spec.add_development_dependency 'rake', '~> 0'
