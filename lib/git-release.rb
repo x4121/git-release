@@ -22,7 +22,7 @@ module GitRelease
         when 'help'
             usage
         when 'version'
-            puts "git-release version #{GitRelease::VERSION}"
+            version
         when 'login'
             login = do_login
             puts 'successfully logged in'
@@ -48,7 +48,9 @@ module GitRelease
     end
 
     def self.usage
-        puts "usage: git-release <command> [<args>]"
+        puts "usage: git release <command> [<args>]"
+        puts ""
+        puts "These are the available commands:"
         puts " help                 print this message"
         puts " version              print the current version"
         puts " login                create or verify api token"
@@ -58,6 +60,10 @@ module GitRelease
         puts "     state            new state. either r[elease], p[rerelease] or d[raft]"
         puts " doc clear <tag>      clear the release notes"
         puts " doc add <tag> <text> add one or more lines to the release notes"
+    end
+
+    def self.version
+        puts "git-release version #{GitRelease::VERSION}"
     end
 
     def self.unknown_status

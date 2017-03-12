@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
     spec.homepage    = 'https://github.com/x4121/git-release'
 
     spec.executables = 'git-release'
-    spec.date        = '2017-02-21'
+    spec.date        = '2017-03-12'
     spec.extra_rdoc_files = ['README.md']
     spec.files       = [
         "LICENSE",
